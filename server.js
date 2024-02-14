@@ -40,7 +40,7 @@ const urlDb="mongodb+srv://abdullah92:UEmCu_t-ssXs8Xe@tasks.ixtcg1y.mongodb.net/
 mongoose.connect(urlDb)
 .then((res)=>{
     console.log("<<<<connected to db>>>>");
-    app.listen(5000)
+    app.listen(5001)
 }).catch((err)=>{
     console.log(err);
 })
