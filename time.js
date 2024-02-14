@@ -1,6 +1,7 @@
 function getCurrentTime() {
     const date = new Date();
     let hours = date.getHours();
+    hours+=2;
     let minutes = date.getMinutes();
     let ampm = hours >= 12 ? 'PM' : 'AM';
     hours = hours % 12;
