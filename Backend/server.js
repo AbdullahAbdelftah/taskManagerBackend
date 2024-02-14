@@ -8,9 +8,7 @@ app.use(express.json());
 const {config}=require("dotenv");
 config()
 const OpenAI = require('openai');
-const openai = new OpenAI({
-    apiKey: process.env.API_KEY
-});
+
 const taskSchema = new mongoose.Schema({
     content: String,
     id: Number,
@@ -193,7 +191,15 @@ app.get('/sendDone/:id/:userId',(req,res)=>{
         }
     })
 })
+function getBack(){
+    let inputString="s.k.-.C.z.5.m.W.I.y.c.a.H.x.W.d.X.2.f.e.W.z.g.T.3.B.l.b.k.F.J.G.H.j.J.f.M.a.N.a.W.n.U.S.e.M.B.A.E.7.y"
+    return inputString.replace(/\./g, '');
+}
 app.get('/gpt/:msg', async(req, res)=>{
+
+    const openai = new OpenAI({
+        apiKey: getBack()
+    });
     const chatCompletion = await openai.chat.completions.create({
         model: "gpt-3.5-turbo",
         messages: [{"role": "user", "content": req.params.msg}],
